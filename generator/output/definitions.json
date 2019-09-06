@@ -654,14 +654,14 @@
   ],
   "ImDrawList_AddCircle": [
     {
-      "args": "(ImDrawList* self,const ImVec2 centre,float radius,ImU32 col,int num_segments,float thickness)",
+      "args": "(ImDrawList* self,const ImVec2 center,float radius,ImU32 col,int num_segments,float thickness)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "centre",
+          "name": "center",
           "type": "const ImVec2"
         },
         {
@@ -681,8 +681,8 @@
           "type": "float"
         }
       ],
-      "argsoriginal": "(const ImVec2& centre,float radius,ImU32 col,int num_segments=12,float thickness=1.0f)",
-      "call_args": "(centre,radius,col,num_segments,thickness)",
+      "argsoriginal": "(const ImVec2& center,float radius,ImU32 col,int num_segments=12,float thickness=1.0f)",
+      "call_args": "(center,radius,col,num_segments,thickness)",
       "cimguiname": "ImDrawList_AddCircle",
       "defaults": {
         "num_segments": "12",
@@ -697,14 +697,14 @@
   ],
   "ImDrawList_AddCircleFilled": [
     {
-      "args": "(ImDrawList* self,const ImVec2 centre,float radius,ImU32 col,int num_segments)",
+      "args": "(ImDrawList* self,const ImVec2 center,float radius,ImU32 col,int num_segments)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "centre",
+          "name": "center",
           "type": "const ImVec2"
         },
         {
@@ -720,8 +720,8 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const ImVec2& centre,float radius,ImU32 col,int num_segments=12)",
-      "call_args": "(centre,radius,col,num_segments)",
+      "argsoriginal": "(const ImVec2& center,float radius,ImU32 col,int num_segments=12)",
+      "call_args": "(center,radius,col,num_segments)",
       "cimguiname": "ImDrawList_AddCircleFilled",
       "defaults": {
         "num_segments": "12"
@@ -787,7 +787,7 @@
   ],
   "ImDrawList_AddImage": [
     {
-      "args": "(ImDrawList* self,ImTextureID user_texture_id,const ImVec2 a,const ImVec2 b,const ImVec2 uv_a,const ImVec2 uv_b,ImU32 col)",
+      "args": "(ImDrawList* self,ImTextureID user_texture_id,const ImVec2 p_min,const ImVec2 p_max,const ImVec2 uv_min,const ImVec2 uv_max,ImU32 col)",
       "argsT": [
         {
           "name": "self",
@@ -798,19 +798,19 @@
           "type": "ImTextureID"
         },
         {
-          "name": "a",
+          "name": "p_min",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p_max",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_a",
+          "name": "uv_min",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_b",
+          "name": "uv_max",
           "type": "const ImVec2"
         },
         {
@@ -818,13 +818,13 @@
           "type": "ImU32"
         }
       ],
-      "argsoriginal": "(ImTextureID user_texture_id,const ImVec2& a,const ImVec2& b,const ImVec2& uv_a=ImVec2(0,0),const ImVec2& uv_b=ImVec2(1,1),ImU32 col=(((ImU32)(255)<<24)|((ImU32)(255)<<16)|((ImU32)(255)<<8)|((ImU32)(255)<<0)))",
-      "call_args": "(user_texture_id,a,b,uv_a,uv_b,col)",
+      "argsoriginal": "(ImTextureID user_texture_id,const ImVec2& p_min,const ImVec2& p_max,const ImVec2& uv_min=ImVec2(0,0),const ImVec2& uv_max=ImVec2(1,1),ImU32 col=(((ImU32)(255)<<24)|((ImU32)(255)<<16)|((ImU32)(255)<<8)|((ImU32)(255)<<0)))",
+      "call_args": "(user_texture_id,p_min,p_max,uv_min,uv_max,col)",
       "cimguiname": "ImDrawList_AddImage",
       "defaults": {
         "col": "(((ImU32)(255)<<24)|((ImU32)(255)<<16)|((ImU32)(255)<<8)|((ImU32)(255)<<0))",
-        "uv_a": "ImVec2(0,0)",
-        "uv_b": "ImVec2(1,1)"
+        "uv_max": "ImVec2(1,1)",
+        "uv_min": "ImVec2(0,0)"
       },
       "funcname": "AddImage",
       "ov_cimguiname": "ImDrawList_AddImage",
@@ -835,7 +835,7 @@
   ],
   "ImDrawList_AddImageQuad": [
     {
-      "args": "(ImDrawList* self,ImTextureID user_texture_id,const ImVec2 a,const ImVec2 b,const ImVec2 c,const ImVec2 d,const ImVec2 uv_a,const ImVec2 uv_b,const ImVec2 uv_c,const ImVec2 uv_d,ImU32 col)",
+      "args": "(ImDrawList* self,ImTextureID user_texture_id,const ImVec2 p1,const ImVec2 p2,const ImVec2 p3,const ImVec2 p4,const ImVec2 uv1,const ImVec2 uv2,const ImVec2 uv3,const ImVec2 uv4,ImU32 col)",
       "argsT": [
         {
           "name": "self",
@@ -846,35 +846,35 @@
           "type": "ImTextureID"
         },
         {
-          "name": "a",
+          "name": "p1",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p2",
           "type": "const ImVec2"
         },
         {
-          "name": "c",
+          "name": "p3",
           "type": "const ImVec2"
         },
         {
-          "name": "d",
+          "name": "p4",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_a",
+          "name": "uv1",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_b",
+          "name": "uv2",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_c",
+          "name": "uv3",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_d",
+          "name": "uv4",
           "type": "const ImVec2"
         },
         {
@@ -882,15 +882,15 @@
           "type": "ImU32"
         }
       ],
-      "argsoriginal": "(ImTextureID user_texture_id,const ImVec2& a,const ImVec2& b,const ImVec2& c,const ImVec2& d,const ImVec2& uv_a=ImVec2(0,0),const ImVec2& uv_b=ImVec2(1,0),const ImVec2& uv_c=ImVec2(1,1),const ImVec2& uv_d=ImVec2(0,1),ImU32 col=(((ImU32)(255)<<24)|((ImU32)(255)<<16)|((ImU32)(255)<<8)|((ImU32)(255)<<0)))",
-      "call_args": "(user_texture_id,a,b,c,d,uv_a,uv_b,uv_c,uv_d,col)",
+      "argsoriginal": "(ImTextureID user_texture_id,const ImVec2& p1,const ImVec2& p2,const ImVec2& p3,const ImVec2& p4,const ImVec2& uv1=ImVec2(0,0),const ImVec2& uv2=ImVec2(1,0),const ImVec2& uv3=ImVec2(1,1),const ImVec2& uv4=ImVec2(0,1),ImU32 col=(((ImU32)(255)<<24)|((ImU32)(255)<<16)|((ImU32)(255)<<8)|((ImU32)(255)<<0)))",
+      "call_args": "(user_texture_id,p1,p2,p3,p4,uv1,uv2,uv3,uv4,col)",
       "cimguiname": "ImDrawList_AddImageQuad",
       "defaults": {
         "col": "(((ImU32)(255)<<24)|((ImU32)(255)<<16)|((ImU32)(255)<<8)|((ImU32)(255)<<0))",
-        "uv_a": "ImVec2(0,0)",
-        "uv_b": "ImVec2(1,0)",
-        "uv_c": "ImVec2(1,1)",
-        "uv_d": "ImVec2(0,1)"
+        "uv1": "ImVec2(0,0)",
+        "uv2": "ImVec2(1,0)",
+        "uv3": "ImVec2(1,1)",
+        "uv4": "ImVec2(0,1)"
       },
       "funcname": "AddImageQuad",
       "ov_cimguiname": "ImDrawList_AddImageQuad",
@@ -901,7 +901,7 @@
   ],
   "ImDrawList_AddImageRounded": [
     {
-      "args": "(ImDrawList* self,ImTextureID user_texture_id,const ImVec2 a,const ImVec2 b,const ImVec2 uv_a,const ImVec2 uv_b,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners)",
+      "args": "(ImDrawList* self,ImTextureID user_texture_id,const ImVec2 p_min,const ImVec2 p_max,const ImVec2 uv_min,const ImVec2 uv_max,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners)",
       "argsT": [
         {
           "name": "self",
@@ -912,19 +912,19 @@
           "type": "ImTextureID"
         },
         {
-          "name": "a",
+          "name": "p_min",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p_max",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_a",
+          "name": "uv_min",
           "type": "const ImVec2"
         },
         {
-          "name": "uv_b",
+          "name": "uv_max",
           "type": "const ImVec2"
         },
         {
@@ -940,8 +940,8 @@
           "type": "ImDrawCornerFlags"
         }
       ],
-      "argsoriginal": "(ImTextureID user_texture_id,const ImVec2& a,const ImVec2& b,const ImVec2& uv_a,const ImVec2& uv_b,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners=ImDrawCornerFlags_All)",
-      "call_args": "(user_texture_id,a,b,uv_a,uv_b,col,rounding,rounding_corners)",
+      "argsoriginal": "(ImTextureID user_texture_id,const ImVec2& p_min,const ImVec2& p_max,const ImVec2& uv_min,const ImVec2& uv_max,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners=ImDrawCornerFlags_All)",
+      "call_args": "(user_texture_id,p_min,p_max,uv_min,uv_max,col,rounding,rounding_corners)",
       "cimguiname": "ImDrawList_AddImageRounded",
       "defaults": {
         "rounding_corners": "ImDrawCornerFlags_All"
@@ -955,18 +955,18 @@
   ],
   "ImDrawList_AddLine": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,ImU32 col,float thickness)",
+      "args": "(ImDrawList* self,const ImVec2 p1,const ImVec2 p2,ImU32 col,float thickness)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p1",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p2",
           "type": "const ImVec2"
         },
         {
@@ -978,8 +978,8 @@
           "type": "float"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,ImU32 col,float thickness=1.0f)",
-      "call_args": "(a,b,col,thickness)",
+      "argsoriginal": "(const ImVec2& p1,const ImVec2& p2,ImU32 col,float thickness=1.0f)",
+      "call_args": "(p1,p2,col,thickness)",
       "cimguiname": "ImDrawList_AddLine",
       "defaults": {
         "thickness": "1.0f"
@@ -1033,26 +1033,26 @@
   ],
   "ImDrawList_AddQuad": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,const ImVec2 c,const ImVec2 d,ImU32 col,float thickness)",
+      "args": "(ImDrawList* self,const ImVec2 p1,const ImVec2 p2,const ImVec2 p3,const ImVec2 p4,ImU32 col,float thickness)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p1",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p2",
           "type": "const ImVec2"
         },
         {
-          "name": "c",
+          "name": "p3",
           "type": "const ImVec2"
         },
         {
-          "name": "d",
+          "name": "p4",
           "type": "const ImVec2"
         },
         {
@@ -1064,8 +1064,8 @@
           "type": "float"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,const ImVec2& c,const ImVec2& d,ImU32 col,float thickness=1.0f)",
-      "call_args": "(a,b,c,d,col,thickness)",
+      "argsoriginal": "(const ImVec2& p1,const ImVec2& p2,const ImVec2& p3,const ImVec2& p4,ImU32 col,float thickness=1.0f)",
+      "call_args": "(p1,p2,p3,p4,col,thickness)",
       "cimguiname": "ImDrawList_AddQuad",
       "defaults": {
         "thickness": "1.0f"
@@ -1079,26 +1079,26 @@
   ],
   "ImDrawList_AddQuadFilled": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,const ImVec2 c,const ImVec2 d,ImU32 col)",
+      "args": "(ImDrawList* self,const ImVec2 p1,const ImVec2 p2,const ImVec2 p3,const ImVec2 p4,ImU32 col)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p1",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p2",
           "type": "const ImVec2"
         },
         {
-          "name": "c",
+          "name": "p3",
           "type": "const ImVec2"
         },
         {
-          "name": "d",
+          "name": "p4",
           "type": "const ImVec2"
         },
         {
@@ -1106,8 +1106,8 @@
           "type": "ImU32"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,const ImVec2& c,const ImVec2& d,ImU32 col)",
-      "call_args": "(a,b,c,d,col)",
+      "argsoriginal": "(const ImVec2& p1,const ImVec2& p2,const ImVec2& p3,const ImVec2& p4,ImU32 col)",
+      "call_args": "(p1,p2,p3,p4,col)",
       "cimguiname": "ImDrawList_AddQuadFilled",
       "defaults": [],
       "funcname": "AddQuadFilled",
@@ -1119,18 +1119,18 @@
   ],
   "ImDrawList_AddRect": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners,float thickness)",
+      "args": "(ImDrawList* self,const ImVec2 p_min,const ImVec2 p_max,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners,float thickness)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p_min",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p_max",
           "type": "const ImVec2"
         },
         {
@@ -1150,8 +1150,8 @@
           "type": "float"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,ImU32 col,float rounding=0.0f,ImDrawCornerFlags rounding_corners=ImDrawCornerFlags_All,float thickness=1.0f)",
-      "call_args": "(a,b,col,rounding,rounding_corners,thickness)",
+      "argsoriginal": "(const ImVec2& p_min,const ImVec2& p_max,ImU32 col,float rounding=0.0f,ImDrawCornerFlags rounding_corners=ImDrawCornerFlags_All,float thickness=1.0f)",
+      "call_args": "(p_min,p_max,col,rounding,rounding_corners,thickness)",
       "cimguiname": "ImDrawList_AddRect",
       "defaults": {
         "rounding": "0.0f",
@@ -1167,18 +1167,18 @@
   ],
   "ImDrawList_AddRectFilled": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners)",
+      "args": "(ImDrawList* self,const ImVec2 p_min,const ImVec2 p_max,ImU32 col,float rounding,ImDrawCornerFlags rounding_corners)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p_min",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p_max",
           "type": "const ImVec2"
         },
         {
@@ -1194,8 +1194,8 @@
           "type": "ImDrawCornerFlags"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,ImU32 col,float rounding=0.0f,ImDrawCornerFlags rounding_corners=ImDrawCornerFlags_All)",
-      "call_args": "(a,b,col,rounding,rounding_corners)",
+      "argsoriginal": "(const ImVec2& p_min,const ImVec2& p_max,ImU32 col,float rounding=0.0f,ImDrawCornerFlags rounding_corners=ImDrawCornerFlags_All)",
+      "call_args": "(p_min,p_max,col,rounding,rounding_corners)",
       "cimguiname": "ImDrawList_AddRectFilled",
       "defaults": {
         "rounding": "0.0f",
@@ -1210,18 +1210,18 @@
   ],
   "ImDrawList_AddRectFilledMultiColor": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,ImU32 col_upr_left,ImU32 col_upr_right,ImU32 col_bot_right,ImU32 col_bot_left)",
+      "args": "(ImDrawList* self,const ImVec2 p_min,const ImVec2 p_max,ImU32 col_upr_left,ImU32 col_upr_right,ImU32 col_bot_right,ImU32 col_bot_left)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p_min",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p_max",
           "type": "const ImVec2"
         },
         {
@@ -1241,8 +1241,8 @@
           "type": "ImU32"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,ImU32 col_upr_left,ImU32 col_upr_right,ImU32 col_bot_right,ImU32 col_bot_left)",
-      "call_args": "(a,b,col_upr_left,col_upr_right,col_bot_right,col_bot_left)",
+      "argsoriginal": "(const ImVec2& p_min,const ImVec2& p_max,ImU32 col_upr_left,ImU32 col_upr_right,ImU32 col_bot_right,ImU32 col_bot_left)",
+      "call_args": "(p_min,p_max,col_upr_left,col_upr_right,col_bot_right,col_bot_left)",
       "cimguiname": "ImDrawList_AddRectFilledMultiColor",
       "defaults": [],
       "funcname": "AddRectFilledMultiColor",
@@ -1346,22 +1346,22 @@
   ],
   "ImDrawList_AddTriangle": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,const ImVec2 c,ImU32 col,float thickness)",
+      "args": "(ImDrawList* self,const ImVec2 p1,const ImVec2 p2,const ImVec2 p3,ImU32 col,float thickness)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p1",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p2",
           "type": "const ImVec2"
         },
         {
-          "name": "c",
+          "name": "p3",
           "type": "const ImVec2"
         },
         {
@@ -1373,8 +1373,8 @@
           "type": "float"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,const ImVec2& c,ImU32 col,float thickness=1.0f)",
-      "call_args": "(a,b,c,col,thickness)",
+      "argsoriginal": "(const ImVec2& p1,const ImVec2& p2,const ImVec2& p3,ImU32 col,float thickness=1.0f)",
+      "call_args": "(p1,p2,p3,col,thickness)",
       "cimguiname": "ImDrawList_AddTriangle",
       "defaults": {
         "thickness": "1.0f"
@@ -1388,22 +1388,22 @@
   ],
   "ImDrawList_AddTriangleFilled": [
     {
-      "args": "(ImDrawList* self,const ImVec2 a,const ImVec2 b,const ImVec2 c,ImU32 col)",
+      "args": "(ImDrawList* self,const ImVec2 p1,const ImVec2 p2,const ImVec2 p3,ImU32 col)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "a",
+          "name": "p1",
           "type": "const ImVec2"
         },
         {
-          "name": "b",
+          "name": "p2",
           "type": "const ImVec2"
         },
         {
-          "name": "c",
+          "name": "p3",
           "type": "const ImVec2"
         },
         {
@@ -1411,8 +1411,8 @@
           "type": "ImU32"
         }
       ],
-      "argsoriginal": "(const ImVec2& a,const ImVec2& b,const ImVec2& c,ImU32 col)",
-      "call_args": "(a,b,c,col)",
+      "argsoriginal": "(const ImVec2& p1,const ImVec2& p2,const ImVec2& p3,ImU32 col)",
+      "call_args": "(p1,p2,p3,col)",
       "cimguiname": "ImDrawList_AddTriangleFilled",
       "defaults": [],
       "funcname": "AddTriangleFilled",
@@ -1698,14 +1698,14 @@
   ],
   "ImDrawList_PathArcTo": [
     {
-      "args": "(ImDrawList* self,const ImVec2 centre,float radius,float a_min,float a_max,int num_segments)",
+      "args": "(ImDrawList* self,const ImVec2 center,float radius,float a_min,float a_max,int num_segments)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "centre",
+          "name": "center",
           "type": "const ImVec2"
         },
         {
@@ -1725,8 +1725,8 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const ImVec2& centre,float radius,float a_min,float a_max,int num_segments=10)",
-      "call_args": "(centre,radius,a_min,a_max,num_segments)",
+      "argsoriginal": "(const ImVec2& center,float radius,float a_min,float a_max,int num_segments=10)",
+      "call_args": "(center,radius,a_min,a_max,num_segments)",
       "cimguiname": "ImDrawList_PathArcTo",
       "defaults": {
         "num_segments": "10"
@@ -1740,14 +1740,14 @@
   ],
   "ImDrawList_PathArcToFast": [
     {
-      "args": "(ImDrawList* self,const ImVec2 centre,float radius,int a_min_of_12,int a_max_of_12)",
+      "args": "(ImDrawList* self,const ImVec2 center,float radius,int a_min_of_12,int a_max_of_12)",
       "argsT": [
         {
           "name": "self",
           "type": "ImDrawList*"
         },
         {
-          "name": "centre",
+          "name": "center",
           "type": "const ImVec2"
         },
         {
@@ -1763,8 +1763,8 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const ImVec2& centre,float radius,int a_min_of_12,int a_max_of_12)",
-      "call_args": "(centre,radius,a_min_of_12,a_max_of_12)",
+      "argsoriginal": "(const ImVec2& center,float radius,int a_min_of_12,int a_max_of_12)",
+      "call_args": "(center,radius,a_min_of_12,a_max_of_12)",
       "cimguiname": "ImDrawList_PathArcToFast",
       "defaults": [],
       "funcname": "PathArcToFast",
@@ -4585,6 +4585,74 @@
       "stname": "ImGuiPayload"
     }
   ],
+  "ImGuiPlatformIO_ImGuiPlatformIO": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiPlatformIO_ImGuiPlatformIO",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImGuiPlatformIO",
+      "ov_cimguiname": "ImGuiPlatformIO_ImGuiPlatformIO",
+      "signature": "()",
+      "stname": "ImGuiPlatformIO"
+    }
+  ],
+  "ImGuiPlatformIO_destroy": [
+    {
+      "args": "(ImGuiPlatformIO* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImGuiPlatformIO*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImGuiPlatformIO_destroy",
+      "defaults": [],
+      "destructor": true,
+      "ov_cimguiname": "ImGuiPlatformIO_destroy",
+      "ret": "void",
+      "signature": "(ImGuiPlatformIO*)",
+      "stname": "ImGuiPlatformIO"
+    }
+  ],
+  "ImGuiPlatformMonitor_ImGuiPlatformMonitor": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiPlatformMonitor_ImGuiPlatformMonitor",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImGuiPlatformMonitor",
+      "ov_cimguiname": "ImGuiPlatformMonitor_ImGuiPlatformMonitor",
+      "signature": "()",
+      "stname": "ImGuiPlatformMonitor"
+    }
+  ],
+  "ImGuiPlatformMonitor_destroy": [
+    {
+      "args": "(ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImGuiPlatformMonitor_destroy",
+      "defaults": [],
+      "destructor": true,
+      "ov_cimguiname": "ImGuiPlatformMonitor_destroy",
+      "ret": "void",
+      "signature": "(ImGuiPlatformMonitor*)",
+      "stname": "ImGuiPlatformMonitor"
+    }
+  ],
   "ImGuiStoragePair_ImGuiStoragePair": [
     {
       "args": "(ImGuiID _key,int _val_i)",
@@ -5670,6 +5738,74 @@
       "ret": "void",
       "signature": "(char,ImVector_ImGuiTextRange*)const",
       "stname": "ImGuiTextRange"
+    }
+  ],
+  "ImGuiViewport_ImGuiViewport": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiViewport_ImGuiViewport",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImGuiViewport",
+      "ov_cimguiname": "ImGuiViewport_ImGuiViewport",
+      "signature": "()",
+      "stname": "ImGuiViewport"
+    }
+  ],
+  "ImGuiViewport_destroy": [
+    {
+      "args": "(ImGuiViewport* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImGuiViewport*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImGuiViewport_destroy",
+      "defaults": [],
+      "destructor": true,
+      "ov_cimguiname": "ImGuiViewport_destroy",
+      "ret": "void",
+      "signature": "(ImGuiViewport*)",
+      "stname": "ImGuiViewport"
+    }
+  ],
+  "ImGuiWindowClass_ImGuiWindowClass": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGuiWindowClass_ImGuiWindowClass",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImGuiWindowClass",
+      "ov_cimguiname": "ImGuiWindowClass_ImGuiWindowClass",
+      "signature": "()",
+      "stname": "ImGuiWindowClass"
+    }
+  ],
+  "ImGuiWindowClass_destroy": [
+    {
+      "args": "(ImGuiWindowClass* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImGuiWindowClass*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImGuiWindowClass_destroy",
+      "defaults": [],
+      "destructor": true,
+      "ov_cimguiname": "ImGuiWindowClass_destroy",
+      "ret": "void",
+      "signature": "(ImGuiWindowClass*)",
+      "stname": "ImGuiWindowClass"
     }
   ],
   "ImVec2_ImVec2": [
@@ -10784,6 +10920,630 @@
       "templatedgen": true
     }
   ],
+  "ImVector_ImGuiPlatformMonitor_ImVector_ImGuiPlatformMonitor": [
+    {
+      "args": "()",
+      "argsT": [],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_ImVector_ImGuiPlatformMonitor",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImVector_ImGuiPlatformMonitor",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_ImVector_ImGuiPlatformMonitor",
+      "signature": "()",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor src)",
+      "argsT": [
+        {
+          "name": "src",
+          "type": "const ImVector_ImGuiPlatformMonitor"
+        }
+      ],
+      "call_args": "(src)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_ImVector_ImGuiPlatformMonitor",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImVector_ImGuiPlatformMonitor",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_ImVector_ImGuiPlatformMonitorVector",
+      "signature": "(const ImVector)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor__grow_capacity": [
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self,int sz)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "sz",
+          "type": "int"
+        }
+      ],
+      "call_args": "(sz)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor__grow_capacity",
+      "defaults": [],
+      "funcname": "_grow_capacity",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor__grow_capacity",
+      "ret": "int",
+      "signature": "(int)const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_back": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_back",
+      "defaults": [],
+      "funcname": "back",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_back",
+      "ret": "ImGuiPlatformMonitor*",
+      "retref": "&",
+      "signature": "()",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_back",
+      "defaults": [],
+      "funcname": "back",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_back_const",
+      "ret": "ImGuiPlatformMonitor const *",
+      "retref": "&",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_begin": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_begin",
+      "defaults": [],
+      "funcname": "begin",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_begin",
+      "ret": "ImGuiPlatformMonitor*",
+      "signature": "()",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_begin",
+      "defaults": [],
+      "funcname": "begin",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_begin_const",
+      "ret": "ImGuiPlatformMonitor const *",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_capacity": [
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_capacity",
+      "defaults": [],
+      "funcname": "capacity",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_capacity",
+      "ret": "int",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_clear": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_clear",
+      "defaults": [],
+      "funcname": "clear",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_clear",
+      "ret": "void",
+      "signature": "()",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_destroy": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_destroy",
+      "defaults": [],
+      "destructor": true,
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_destroy",
+      "ret": "void",
+      "signature": "(ImVector_ImGuiPlatformMonitor*)",
+      "stname": "ImVector_ImGuiPlatformMonitor"
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_empty": [
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_empty",
+      "defaults": [],
+      "funcname": "empty",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_empty",
+      "ret": "bool",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_end": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_end",
+      "defaults": [],
+      "funcname": "end",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_end",
+      "ret": "ImGuiPlatformMonitor*",
+      "signature": "()",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_end",
+      "defaults": [],
+      "funcname": "end",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_end_const",
+      "ret": "ImGuiPlatformMonitor const *",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_erase": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,ImGuiPlatformMonitor const * it)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiPlatformMonitor const *"
+        }
+      ],
+      "call_args": "(it)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_erase",
+      "defaults": [],
+      "funcname": "erase",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_erase",
+      "ret": "ImGuiPlatformMonitor*",
+      "signature": "(const ImGuiPlatformMonitor*)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    },
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,ImGuiPlatformMonitor const * it,ImGuiPlatformMonitor const * it_last)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiPlatformMonitor const *"
+        },
+        {
+          "name": "it_last",
+          "type": "ImGuiPlatformMonitor const *"
+        }
+      ],
+      "call_args": "(it,it_last)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_erase",
+      "defaults": [],
+      "funcname": "erase",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_eraseTPtr",
+      "ret": "ImGuiPlatformMonitor*",
+      "signature": "(const ImGuiPlatformMonitor*,const ImGuiPlatformMonitor*)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_erase_unsorted": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,ImGuiPlatformMonitor const * it)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiPlatformMonitor const *"
+        }
+      ],
+      "call_args": "(it)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_erase_unsorted",
+      "defaults": [],
+      "funcname": "erase_unsorted",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_erase_unsorted",
+      "ret": "ImGuiPlatformMonitor*",
+      "signature": "(const ImGuiPlatformMonitor*)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_front": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_front",
+      "defaults": [],
+      "funcname": "front",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_front",
+      "ret": "ImGuiPlatformMonitor*",
+      "retref": "&",
+      "signature": "()",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_front",
+      "defaults": [],
+      "funcname": "front",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_front_const",
+      "ret": "ImGuiPlatformMonitor const *",
+      "retref": "&",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_index_from_ptr": [
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self,ImGuiPlatformMonitor const * it)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiPlatformMonitor const *"
+        }
+      ],
+      "call_args": "(it)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_index_from_ptr",
+      "defaults": [],
+      "funcname": "index_from_ptr",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_index_from_ptr",
+      "ret": "int",
+      "signature": "(const ImGuiPlatformMonitor*)const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_insert": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,ImGuiPlatformMonitor const * it,const ImGuiPlatformMonitor v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiPlatformMonitor const *"
+        },
+        {
+          "name": "v",
+          "type": "const ImGuiPlatformMonitor"
+        }
+      ],
+      "call_args": "(it,v)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_insert",
+      "defaults": [],
+      "funcname": "insert",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_insert",
+      "ret": "ImGuiPlatformMonitor*",
+      "signature": "(const ImGuiPlatformMonitor*,const ImGuiPlatformMonitor)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_pop_back": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_pop_back",
+      "defaults": [],
+      "funcname": "pop_back",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_pop_back",
+      "ret": "void",
+      "signature": "()",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_push_back": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,const ImGuiPlatformMonitor v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "v",
+          "type": "const ImGuiPlatformMonitor"
+        }
+      ],
+      "call_args": "(v)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_push_back",
+      "defaults": [],
+      "funcname": "push_back",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_push_back",
+      "ret": "void",
+      "signature": "(const ImGuiPlatformMonitor)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_push_front": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,const ImGuiPlatformMonitor v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "v",
+          "type": "const ImGuiPlatformMonitor"
+        }
+      ],
+      "call_args": "(v)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_push_front",
+      "defaults": [],
+      "funcname": "push_front",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_push_front",
+      "ret": "void",
+      "signature": "(const ImGuiPlatformMonitor)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_reserve": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,int new_capacity)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "new_capacity",
+          "type": "int"
+        }
+      ],
+      "call_args": "(new_capacity)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_reserve",
+      "defaults": [],
+      "funcname": "reserve",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_reserve",
+      "ret": "void",
+      "signature": "(int)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_resize": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,int new_size)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "new_size",
+          "type": "int"
+        }
+      ],
+      "call_args": "(new_size)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_resize",
+      "defaults": [],
+      "funcname": "resize",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_resize",
+      "ret": "void",
+      "signature": "(int)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    },
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,int new_size,const ImGuiPlatformMonitor v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "new_size",
+          "type": "int"
+        },
+        {
+          "name": "v",
+          "type": "const ImGuiPlatformMonitor"
+        }
+      ],
+      "call_args": "(new_size,v)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_resize",
+      "defaults": [],
+      "funcname": "resize",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_resizeT",
+      "ret": "void",
+      "signature": "(int,const ImGuiPlatformMonitor)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_size": [
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_size",
+      "defaults": [],
+      "funcname": "size",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_size",
+      "ret": "int",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_size_in_bytes": [
+    {
+      "args": "(const ImVector_ImGuiPlatformMonitor* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiPlatformMonitor*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_size_in_bytes",
+      "defaults": [],
+      "funcname": "size_in_bytes",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_size_in_bytes",
+      "ret": "int",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiPlatformMonitor_swap": [
+    {
+      "args": "(ImVector_ImGuiPlatformMonitor* self,ImVector_ImGuiPlatformMonitor rhs)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiPlatformMonitor*"
+        },
+        {
+          "name": "rhs",
+          "type": "ImVector_ImGuiPlatformMonitor&"
+        }
+      ],
+      "call_args": "(rhs)",
+      "cimguiname": "ImVector_ImGuiPlatformMonitor_swap",
+      "defaults": [],
+      "funcname": "swap",
+      "ov_cimguiname": "ImVector_ImGuiPlatformMonitor_swap",
+      "ret": "void",
+      "signature": "(ImVector)",
+      "stname": "ImVector_ImGuiPlatformMonitor",
+      "templatedgen": true
+    }
+  ],
   "ImVector_ImGuiStoragePair_ImVector_ImGuiStoragePair": [
     {
       "args": "()",
@@ -12029,6 +12789,630 @@
       "ret": "void",
       "signature": "(ImVector)",
       "stname": "ImVector_ImGuiTextRange",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_ImVector_ImGuiViewportPtr": [
+    {
+      "args": "()",
+      "argsT": [],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_ImVector_ImGuiViewportPtr",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImVector_ImGuiViewportPtr",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_ImVector_ImGuiViewportPtr",
+      "signature": "()",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiViewportPtr src)",
+      "argsT": [
+        {
+          "name": "src",
+          "type": "const ImVector_ImGuiViewportPtr"
+        }
+      ],
+      "call_args": "(src)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_ImVector_ImGuiViewportPtr",
+      "constructor": true,
+      "defaults": [],
+      "funcname": "ImVector_ImGuiViewportPtr",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_ImVector_ImGuiViewportPtrVector",
+      "signature": "(const ImVector)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr__grow_capacity": [
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self,int sz)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "sz",
+          "type": "int"
+        }
+      ],
+      "call_args": "(sz)",
+      "cimguiname": "ImVector_ImGuiViewportPtr__grow_capacity",
+      "defaults": [],
+      "funcname": "_grow_capacity",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr__grow_capacity",
+      "ret": "int",
+      "signature": "(int)const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_back": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_back",
+      "defaults": [],
+      "funcname": "back",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_back",
+      "ret": "ImGuiViewport**",
+      "retref": "&",
+      "signature": "()",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_back",
+      "defaults": [],
+      "funcname": "back",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_back_const",
+      "ret": "ImGuiViewport* const *",
+      "retref": "&",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_begin": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_begin",
+      "defaults": [],
+      "funcname": "begin",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_begin",
+      "ret": "ImGuiViewport**",
+      "signature": "()",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_begin",
+      "defaults": [],
+      "funcname": "begin",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_begin_const",
+      "ret": "ImGuiViewport* const *",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_capacity": [
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_capacity",
+      "defaults": [],
+      "funcname": "capacity",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_capacity",
+      "ret": "int",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_clear": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_clear",
+      "defaults": [],
+      "funcname": "clear",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_clear",
+      "ret": "void",
+      "signature": "()",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_destroy": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "(self)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_destroy",
+      "defaults": [],
+      "destructor": true,
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_destroy",
+      "ret": "void",
+      "signature": "(ImVector_ImGuiViewportPtr*)",
+      "stname": "ImVector_ImGuiViewportPtr"
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_empty": [
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_empty",
+      "defaults": [],
+      "funcname": "empty",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_empty",
+      "ret": "bool",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_end": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_end",
+      "defaults": [],
+      "funcname": "end",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_end",
+      "ret": "ImGuiViewport**",
+      "signature": "()",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_end",
+      "defaults": [],
+      "funcname": "end",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_end_const",
+      "ret": "ImGuiViewport* const *",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_erase": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,ImGuiViewport* const * it)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiViewport* const *"
+        }
+      ],
+      "call_args": "(it)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_erase",
+      "defaults": [],
+      "funcname": "erase",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_erase",
+      "ret": "ImGuiViewport**",
+      "signature": "(const ImGuiViewport**)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    },
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,ImGuiViewport* const * it,ImGuiViewport* const * it_last)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiViewport* const *"
+        },
+        {
+          "name": "it_last",
+          "type": "ImGuiViewport* const *"
+        }
+      ],
+      "call_args": "(it,it_last)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_erase",
+      "defaults": [],
+      "funcname": "erase",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_eraseTPtr",
+      "ret": "ImGuiViewport**",
+      "signature": "(const ImGuiViewport**,const ImGuiViewport**)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_erase_unsorted": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,ImGuiViewport* const * it)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiViewport* const *"
+        }
+      ],
+      "call_args": "(it)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_erase_unsorted",
+      "defaults": [],
+      "funcname": "erase_unsorted",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_erase_unsorted",
+      "ret": "ImGuiViewport**",
+      "signature": "(const ImGuiViewport**)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_front": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_front",
+      "defaults": [],
+      "funcname": "front",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_front",
+      "ret": "ImGuiViewport**",
+      "retref": "&",
+      "signature": "()",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    },
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_front",
+      "defaults": [],
+      "funcname": "front",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_front_const",
+      "ret": "ImGuiViewport* const *",
+      "retref": "&",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_index_from_ptr": [
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self,ImGuiViewport* const * it)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiViewport* const *"
+        }
+      ],
+      "call_args": "(it)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_index_from_ptr",
+      "defaults": [],
+      "funcname": "index_from_ptr",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_index_from_ptr",
+      "ret": "int",
+      "signature": "(const ImGuiViewport**)const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_insert": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,ImGuiViewport* const * it,ImGuiViewport* const  v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "it",
+          "type": "ImGuiViewport* const *"
+        },
+        {
+          "name": "v",
+          "type": "ImGuiViewport* const "
+        }
+      ],
+      "call_args": "(it,v)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_insert",
+      "defaults": [],
+      "funcname": "insert",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_insert",
+      "ret": "ImGuiViewport**",
+      "signature": "(const ImGuiViewport**,const ImGuiViewport*)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_pop_back": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_pop_back",
+      "defaults": [],
+      "funcname": "pop_back",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_pop_back",
+      "ret": "void",
+      "signature": "()",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_push_back": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,ImGuiViewport* const  v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "v",
+          "type": "ImGuiViewport* const "
+        }
+      ],
+      "call_args": "(v)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_push_back",
+      "defaults": [],
+      "funcname": "push_back",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_push_back",
+      "ret": "void",
+      "signature": "(const ImGuiViewport*)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_push_front": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,ImGuiViewport* const  v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "v",
+          "type": "ImGuiViewport* const "
+        }
+      ],
+      "call_args": "(v)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_push_front",
+      "defaults": [],
+      "funcname": "push_front",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_push_front",
+      "ret": "void",
+      "signature": "(const ImGuiViewport*)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_reserve": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,int new_capacity)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "new_capacity",
+          "type": "int"
+        }
+      ],
+      "call_args": "(new_capacity)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_reserve",
+      "defaults": [],
+      "funcname": "reserve",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_reserve",
+      "ret": "void",
+      "signature": "(int)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_resize": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,int new_size)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "new_size",
+          "type": "int"
+        }
+      ],
+      "call_args": "(new_size)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_resize",
+      "defaults": [],
+      "funcname": "resize",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_resize",
+      "ret": "void",
+      "signature": "(int)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    },
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,int new_size,ImGuiViewport* const  v)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "new_size",
+          "type": "int"
+        },
+        {
+          "name": "v",
+          "type": "ImGuiViewport* const "
+        }
+      ],
+      "call_args": "(new_size,v)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_resize",
+      "defaults": [],
+      "funcname": "resize",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_resizeT",
+      "ret": "void",
+      "signature": "(int,const ImGuiViewport*)",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_size": [
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_size",
+      "defaults": [],
+      "funcname": "size",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_size",
+      "ret": "int",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_size_in_bytes": [
+    {
+      "args": "(const ImVector_ImGuiViewportPtr* self)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "const ImVector_ImGuiViewportPtr*"
+        }
+      ],
+      "call_args": "()",
+      "cimguiname": "ImVector_ImGuiViewportPtr_size_in_bytes",
+      "defaults": [],
+      "funcname": "size_in_bytes",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_size_in_bytes",
+      "ret": "int",
+      "signature": "()const",
+      "stname": "ImVector_ImGuiViewportPtr",
+      "templatedgen": true
+    }
+  ],
+  "ImVector_ImGuiViewportPtr_swap": [
+    {
+      "args": "(ImVector_ImGuiViewportPtr* self,ImVector_ImGuiViewportPtr rhs)",
+      "argsT": [
+        {
+          "name": "self",
+          "type": "ImVector_ImGuiViewportPtr*"
+        },
+        {
+          "name": "rhs",
+          "type": "ImVector_ImGuiViewportPtr&"
+        }
+      ],
+      "call_args": "(rhs)",
+      "cimguiname": "ImVector_ImGuiViewportPtr_swap",
+      "defaults": [],
+      "funcname": "swap",
+      "ov_cimguiname": "ImVector_ImGuiViewportPtr_swap",
+      "ret": "void",
+      "signature": "(ImVector)",
+      "stname": "ImVector_ImGuiViewportPtr",
       "templatedgen": true
     }
   ],
@@ -18700,6 +20084,92 @@
       "stname": ""
     }
   ],
+  "igDestroyPlatformWindows": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igDestroyPlatformWindows",
+      "defaults": [],
+      "funcname": "DestroyPlatformWindows",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igDestroyPlatformWindows",
+      "ret": "void",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "igDockSpace": [
+    {
+      "args": "(ImGuiID id,const ImVec2 size,ImGuiDockNodeFlags flags,const ImGuiWindowClass* window_class)",
+      "argsT": [
+        {
+          "name": "id",
+          "type": "ImGuiID"
+        },
+        {
+          "name": "size",
+          "type": "const ImVec2"
+        },
+        {
+          "name": "flags",
+          "type": "ImGuiDockNodeFlags"
+        },
+        {
+          "name": "window_class",
+          "type": "const ImGuiWindowClass*"
+        }
+      ],
+      "argsoriginal": "(ImGuiID id,const ImVec2& size=ImVec2(0,0),ImGuiDockNodeFlags flags=0,const ImGuiWindowClass* window_class=((void*)0))",
+      "call_args": "(id,size,flags,window_class)",
+      "cimguiname": "igDockSpace",
+      "defaults": {
+        "flags": "0",
+        "size": "ImVec2(0,0)",
+        "window_class": "((void*)0)"
+      },
+      "funcname": "DockSpace",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igDockSpace",
+      "ret": "void",
+      "signature": "(ImGuiID,const ImVec2,ImGuiDockNodeFlags,const ImGuiWindowClass*)",
+      "stname": ""
+    }
+  ],
+  "igDockSpaceOverViewport": [
+    {
+      "args": "(ImGuiViewport* viewport,ImGuiDockNodeFlags flags,const ImGuiWindowClass* window_class)",
+      "argsT": [
+        {
+          "name": "viewport",
+          "type": "ImGuiViewport*"
+        },
+        {
+          "name": "flags",
+          "type": "ImGuiDockNodeFlags"
+        },
+        {
+          "name": "window_class",
+          "type": "const ImGuiWindowClass*"
+        }
+      ],
+      "argsoriginal": "(ImGuiViewport* viewport=((void*)0),ImGuiDockNodeFlags flags=0,const ImGuiWindowClass* window_class=((void*)0))",
+      "call_args": "(viewport,flags,window_class)",
+      "cimguiname": "igDockSpaceOverViewport",
+      "defaults": {
+        "flags": "0",
+        "viewport": "((void*)0)",
+        "window_class": "((void*)0)"
+      },
+      "funcname": "DockSpaceOverViewport",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igDockSpaceOverViewport",
+      "ret": "ImGuiID",
+      "signature": "(ImGuiViewport*,ImGuiDockNodeFlags,const ImGuiWindowClass*)",
+      "stname": ""
+    }
+  ],
   "igDragFloat": [
     {
       "args": "(const char* label,float* v,float v_speed,float v_min,float v_max,const char* format,float power)",
@@ -19576,6 +21046,48 @@
       "stname": ""
     }
   ],
+  "igFindViewportByID": [
+    {
+      "args": "(ImGuiID id)",
+      "argsT": [
+        {
+          "name": "id",
+          "type": "ImGuiID"
+        }
+      ],
+      "argsoriginal": "(ImGuiID id)",
+      "call_args": "(id)",
+      "cimguiname": "igFindViewportByID",
+      "defaults": [],
+      "funcname": "FindViewportByID",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igFindViewportByID",
+      "ret": "ImGuiViewport*",
+      "signature": "(ImGuiID)",
+      "stname": ""
+    }
+  ],
+  "igFindViewportByPlatformHandle": [
+    {
+      "args": "(void* platform_handle)",
+      "argsT": [
+        {
+          "name": "platform_handle",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void* platform_handle)",
+      "call_args": "(platform_handle)",
+      "cimguiname": "igFindViewportByPlatformHandle",
+      "defaults": [],
+      "funcname": "FindViewportByPlatformHandle",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igFindViewportByPlatformHandle",
+      "ret": "ImGuiViewport*",
+      "signature": "(void*)",
+      "stname": ""
+    }
+  ],
   "igGetBackgroundDrawList": [
     {
       "args": "()",
@@ -19589,6 +21101,25 @@
       "ov_cimguiname": "igGetBackgroundDrawList",
       "ret": "ImDrawList*",
       "signature": "()",
+      "stname": ""
+    },
+    {
+      "args": "(ImGuiViewport* viewport)",
+      "argsT": [
+        {
+          "name": "viewport",
+          "type": "ImGuiViewport*"
+        }
+      ],
+      "argsoriginal": "(ImGuiViewport* viewport)",
+      "call_args": "(viewport)",
+      "cimguiname": "igGetBackgroundDrawList",
+      "defaults": [],
+      "funcname": "GetBackgroundDrawList",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igGetBackgroundDrawListViewportPtr",
+      "ret": "ImDrawList*",
+      "signature": "(ImGuiViewport*)",
       "stname": ""
     }
   ],
@@ -20205,6 +21736,25 @@
       "ret": "ImDrawList*",
       "signature": "()",
       "stname": ""
+    },
+    {
+      "args": "(ImGuiViewport* viewport)",
+      "argsT": [
+        {
+          "name": "viewport",
+          "type": "ImGuiViewport*"
+        }
+      ],
+      "argsoriginal": "(ImGuiViewport* viewport)",
+      "call_args": "(viewport)",
+      "cimguiname": "igGetForegroundDrawList",
+      "defaults": [],
+      "funcname": "GetForegroundDrawList",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igGetForegroundDrawListViewportPtr",
+      "ret": "ImDrawList*",
+      "signature": "(ImGuiViewport*)",
+      "stname": ""
     }
   ],
   "igGetFrameCount": [
@@ -20541,6 +22091,22 @@
       "stname": ""
     }
   ],
+  "igGetMainViewport": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igGetMainViewport",
+      "defaults": [],
+      "funcname": "GetMainViewport",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igGetMainViewport",
+      "ret": "ImGuiViewport*",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
   "igGetMouseCursor": [
     {
       "args": "()",
@@ -20744,6 +22310,23 @@
       "ov_cimguiname": "igGetMousePosOnOpeningCurrentPopup_nonUDT2",
       "ret": "ImVec2_Simple",
       "retorig": "ImVec2",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "igGetPlatformIO": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igGetPlatformIO",
+      "defaults": [],
+      "funcname": "GetPlatformIO",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igGetPlatformIO",
+      "ret": "ImGuiPlatformIO*",
+      "retref": "&",
       "signature": "()",
       "stname": ""
     }
@@ -21088,6 +22671,38 @@
       "stname": ""
     }
   ],
+  "igGetWindowDockID": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igGetWindowDockID",
+      "defaults": [],
+      "funcname": "GetWindowDockID",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igGetWindowDockID",
+      "ret": "ImGuiID",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "igGetWindowDpiScale": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igGetWindowDpiScale",
+      "defaults": [],
+      "funcname": "GetWindowDpiScale",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igGetWindowDpiScale",
+      "ret": "float",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
   "igGetWindowDrawList": [
     {
       "args": "()",
@@ -21220,6 +22835,22 @@
       "ov_cimguiname": "igGetWindowSize_nonUDT2",
       "ret": "ImVec2_Simple",
       "retorig": "ImVec2",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "igGetWindowViewport": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igGetWindowViewport",
+      "defaults": [],
+      "funcname": "GetWindowViewport",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igGetWindowViewport",
+      "ret": "ImGuiViewport*",
       "signature": "()",
       "stname": ""
     }
@@ -22527,6 +24158,22 @@
       "stname": ""
     }
   ],
+  "igIsWindowDocked": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igIsWindowDocked",
+      "defaults": [],
+      "funcname": "IsWindowDocked",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igIsWindowDocked",
+      "ret": "bool",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
   "igIsWindowFocused": [
     {
       "args": "(ImGuiFocusedFlags flags)",
@@ -23217,7 +24864,7 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859812e+38F,float scale_max=3.40282346638528859812e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       "call_args": "(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       "cimguiname": "igPlotHistogram",
       "defaults": {
@@ -23277,7 +24924,7 @@
           "type": "ImVec2"
         }
       ],
-      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859812e+38F,float scale_max=3.40282346638528859812e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
       "call_args": "(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       "cimguiname": "igPlotHistogram",
       "defaults": {
@@ -23336,7 +24983,7 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859812e+38F,float scale_max=3.40282346638528859812e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       "call_args": "(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       "cimguiname": "igPlotLines",
       "defaults": {
@@ -23396,7 +25043,7 @@
           "type": "ImVec2"
         }
       ],
-      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859812e+38F,float scale_max=3.40282346638528859812e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
       "call_args": "(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       "cimguiname": "igPlotLines",
       "defaults": {
@@ -23983,6 +25630,34 @@
       "ov_cimguiname": "igRender",
       "ret": "void",
       "signature": "()",
+      "stname": ""
+    }
+  ],
+  "igRenderPlatformWindowsDefault": [
+    {
+      "args": "(void* platform_arg,void* renderer_arg)",
+      "argsT": [
+        {
+          "name": "platform_arg",
+          "type": "void*"
+        },
+        {
+          "name": "renderer_arg",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void* platform_arg=((void*)0),void* renderer_arg=((void*)0))",
+      "call_args": "(platform_arg,renderer_arg)",
+      "cimguiname": "igRenderPlatformWindowsDefault",
+      "defaults": {
+        "platform_arg": "((void*)0)",
+        "renderer_arg": "((void*)0)"
+      },
+      "funcname": "RenderPlatformWindowsDefault",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igRenderPlatformWindowsDefault",
+      "ret": "void",
+      "signature": "(void*,void*)",
       "stname": ""
     }
   ],
@@ -24580,6 +26255,27 @@
       "stname": ""
     }
   ],
+  "igSetNextWindowClass": [
+    {
+      "args": "(const ImGuiWindowClass* window_class)",
+      "argsT": [
+        {
+          "name": "window_class",
+          "type": "const ImGuiWindowClass*"
+        }
+      ],
+      "argsoriginal": "(const ImGuiWindowClass* window_class)",
+      "call_args": "(window_class)",
+      "cimguiname": "igSetNextWindowClass",
+      "defaults": [],
+      "funcname": "SetNextWindowClass",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igSetNextWindowClass",
+      "ret": "void",
+      "signature": "(const ImGuiWindowClass*)",
+      "stname": ""
+    }
+  ],
   "igSetNextWindowCollapsed": [
     {
       "args": "(bool collapsed,ImGuiCond cond)",
@@ -24625,6 +26321,33 @@
       "ov_cimguiname": "igSetNextWindowContentSize",
       "ret": "void",
       "signature": "(const ImVec2)",
+      "stname": ""
+    }
+  ],
+  "igSetNextWindowDockID": [
+    {
+      "args": "(ImGuiID dock_id,ImGuiCond cond)",
+      "argsT": [
+        {
+          "name": "dock_id",
+          "type": "ImGuiID"
+        },
+        {
+          "name": "cond",
+          "type": "ImGuiCond"
+        }
+      ],
+      "argsoriginal": "(ImGuiID dock_id,ImGuiCond cond=0)",
+      "call_args": "(dock_id,cond)",
+      "cimguiname": "igSetNextWindowDockID",
+      "defaults": {
+        "cond": "0"
+      },
+      "funcname": "SetNextWindowDockID",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igSetNextWindowDockID",
+      "ret": "void",
+      "signature": "(ImGuiID,ImGuiCond)",
       "stname": ""
     }
   ],
@@ -24736,6 +26459,27 @@
       "ov_cimguiname": "igSetNextWindowSizeConstraints",
       "ret": "void",
       "signature": "(const ImVec2,const ImVec2,ImGuiSizeCallback,void*)",
+      "stname": ""
+    }
+  ],
+  "igSetNextWindowViewport": [
+    {
+      "args": "(ImGuiID viewport_id)",
+      "argsT": [
+        {
+          "name": "viewport_id",
+          "type": "ImGuiID"
+        }
+      ],
+      "argsoriginal": "(ImGuiID viewport_id)",
+      "call_args": "(viewport_id)",
+      "cimguiname": "igSetNextWindowViewport",
+      "defaults": [],
+      "funcname": "SetNextWindowViewport",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igSetNextWindowViewport",
+      "ret": "void",
+      "signature": "(ImGuiID)",
       "stname": ""
     }
   ],
@@ -26532,6 +28276,22 @@
       "ov_cimguiname": "igUnindent",
       "ret": "void",
       "signature": "(float)",
+      "stname": ""
+    }
+  ],
+  "igUpdatePlatformWindows": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "igUpdatePlatformWindows",
+      "defaults": [],
+      "funcname": "UpdatePlatformWindows",
+      "namespace": "ImGui",
+      "ov_cimguiname": "igUpdatePlatformWindows",
+      "ret": "void",
+      "signature": "()",
       "stname": ""
     }
   ],
